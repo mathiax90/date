@@ -3,7 +3,7 @@ import (
 	"time"
 	"strings"
 	"encoding/json"
-	// "fmt"
+	"fmt"
     // "bytes"
     "encoding/xml"
     "errors"
@@ -46,4 +46,8 @@ func (d *Date) Scan(value interface{}) error {
         }
         return errors.New("failed to scan Date")
     }
+}
+
+func (d Date) String() string {
+	return fmt.Sprintf("{%v}", d.Time.Format("2006-01-02"))
 }
